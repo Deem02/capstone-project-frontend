@@ -30,7 +30,7 @@ function DepartmentList() {
         try{
        await authRequest({ 
         method: 'delete',
-         url: `http://127.0.0.1:8000/api/departments/${departmentId}` })
+         url: `http://127.0.0.1:8000/api/departments/${departmentId}/` })
          getAllDepartments()
         } catch (error){
         console.log('Failed to delete departments', error);
