@@ -7,7 +7,7 @@ import { authRequest, getUserFromToken, clearTokens } from "../../lib/auth"
 
 
 function DepartmentList() {
-    const [departments, setDepartment] = useState([])
+    const [departments, setDepartments] = useState([])
     const navigate = useNavigate()
 
     async function getAllDepartments() {
@@ -15,7 +15,7 @@ function DepartmentList() {
         try {
             const response = await authRequest({ method: 'get', url: 'http://127.0.0.1:8000/api/departments/' })
             console.log(response.data);
-            setDepartment(response.data)
+            setDepartments(response.data)
         } catch (error) {
             console.log('Failed to fetch departments', error);
 

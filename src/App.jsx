@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import NavBar from './components/NavBar/NavBar'
 import DepartmentList from './components/DepartmentList/DepartmentList'
 import DepartmentForm from './components/DepartmentForm/DepartmentForm'
+import EmployeeList from './components/EmployeeList/EmployeeList'
 
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
@@ -34,6 +35,11 @@ function App() {
           <Route path='/departments/:departmentId/edit' element={
             <ProtectedRoute>
               <DepartmentForm />
+            </ProtectedRoute>
+          } />
+          <Route path='/employees' element={
+            <ProtectedRoute>
+              <EmployeeList />
             </ProtectedRoute>
           } />
 

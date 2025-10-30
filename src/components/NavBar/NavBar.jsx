@@ -14,6 +14,7 @@ function NavBar({ user, setUser }) {
           </>
       }
       <Link to={'/departments'}> department </Link>
+      <Link to={'/employees'}> employees </Link>
       {/* <Link to={'/departments/new'}>Add A department</Link> */}
     </nav>
   )
