@@ -60,7 +60,7 @@ function DepartmentForm() {
         //     data: formData
         // })
 
-        if(response.status===201 || response.status==200){
+        if(response.status===201 || response.status===200){
             navigate('/departments')
         }
     } catch (err) {

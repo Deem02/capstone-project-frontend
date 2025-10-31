@@ -52,13 +52,13 @@ function EmployeeList() {
                     </thead>
                     <tbody>
                      {employees.map((employee)=>(
-                      <tr key={employee.employee_id}>
-                        <td>{employee.user.first_name} {employee.user.last_name}</td>
-                        <td>{employee.user.email} </td>
+                      <tr key={employee.id}>
+                        <td>{employee.first_name} {employee.last_name}</td>
+                        <td>{employee.email} </td>
                         <td>{employee.department || 'No Department'} </td>
                         <td>{employee.role} </td>
                         <td>
-                <Link to={`/employees/${employee.employee_id}/edit`} >
+                <Link to={`/employees/${employee.id}/edit`} >
                                 <button>
                                     ✏️
                                 </button>

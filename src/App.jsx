@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar'
 import DepartmentList from './components/DepartmentList/DepartmentList'
 import DepartmentForm from './components/DepartmentForm/DepartmentForm'
 import EmployeeList from './components/EmployeeList/EmployeeList'
+import EmployeeForm from './components/EmployeeForm/EmployeeForm'
 
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
@@ -40,6 +41,16 @@ function App() {
           <Route path='/employees' element={
             <ProtectedRoute>
               <EmployeeList />
+            </ProtectedRoute>
+          } />
+                <Route path='/employees/:employeeId/edit' element={
+            <ProtectedRoute>
+              <EmployeeForm />
+            </ProtectedRoute>
+          } />
+                <Route path='/employees/add' element={
+            <ProtectedRoute>
+              <EmployeeForm />
             </ProtectedRoute>
           } />
 
