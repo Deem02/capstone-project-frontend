@@ -26,7 +26,7 @@ function DepartmentList() {
         getAllDepartments()
     }, [])
 
-    async function handelDelete(departmentId){
+    async function handleDelete(departmentId){
         try{
        await authRequest({ 
         method: 'delete',
@@ -41,7 +41,7 @@ function DepartmentList() {
 
     return (
         <div>
-            <h1>Departments </h1>
+            <h2>Departments </h2>
 
             <Link to='/departments/add'>
                 <button>
@@ -60,7 +60,7 @@ function DepartmentList() {
                                     ✏️
                                 </button>
                             </Link>
-                            <button onClick={()=> handelDelete(department.id)}>
+                            <button onClick={()=> handleDelete(department.id)}>
                               delete  
                             </button>
 

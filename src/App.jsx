@@ -7,7 +7,7 @@ import DepartmentList from './components/DepartmentList/DepartmentList'
 import DepartmentForm from './components/DepartmentForm/DepartmentForm'
 import EmployeeList from './components/EmployeeList/EmployeeList'
 import EmployeeForm from './components/EmployeeForm/EmployeeForm'
-
+import TaskList from './components/TaskList/TaskList'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import { getUserFromToken } from './lib/auth'
@@ -43,14 +43,19 @@ function App() {
               <EmployeeList />
             </ProtectedRoute>
           } />
-                <Route path='/employees/:employeeId/edit' element={
+          <Route path='/employees/:employeeId/edit' element={
             <ProtectedRoute>
               <EmployeeForm />
             </ProtectedRoute>
           } />
-                <Route path='/employees/add' element={
+          <Route path='/employees/add' element={
             <ProtectedRoute>
               <EmployeeForm />
+            </ProtectedRoute>
+          } />
+          <Route path='/tasks/' element={
+            <ProtectedRoute>
+              <TaskList />
             </ProtectedRoute>
           } />
 
