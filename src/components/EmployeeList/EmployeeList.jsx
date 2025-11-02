@@ -6,7 +6,6 @@ import { authRequest } from "../../lib/auth"
 
 function EmployeeList() {
     const [employees, setEmployees] = useState([])
-    const navigate = useNavigate()
 
     async function getAllEmployees() {
         // used authRequest insted of  axios.get
@@ -24,6 +23,19 @@ function EmployeeList() {
     useEffect(() => {
         getAllEmployees()
     }, [])
+        async function handleDelete(employeeId){
+        try{
+       await authRequest({ 
+        method: 'delete',
+         url: `http://127.0.0.1:8000/api/employees/${employeeId}/` })
+         getAllEmployees()
+        } catch (error){
+        console.log('Failed to delete an emplyee', error);
+
+        }
+
+    }
+
     return (
         <div>
             <div>
@@ -63,6 +75,8 @@ function EmployeeList() {
                                     ✏️
                                 </button>
                             </Link>
+                            <button onClick={()=> handleDelete(employee.id)}>
+                            delete</button>
                         </td>
 
                       </tr>  
