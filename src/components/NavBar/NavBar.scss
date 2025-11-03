@@ -1,0 +1,47 @@
+// #233142
+$nav-bg: #222a31;
+$nav-text: #f7f7f7;
+$nav-hover: #22313f;
+$nav-brand: #24527a;
+
+.navbar {
+    background-color: $nav-bg;
+    padding: 1rem;
+    color: $nav-text;
+    .navbar-container{
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-links, .navbar-auth  {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $nav-brand;
+    }
+
+    a {
+        color: $nav-text;
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $nav-hover;
+            color: #24527a;
+        }
+    }
+
+    button { 
+         color: $nav-text; 
+        padding: 0.5rem 0.75rem;
+        border-radius: 15px;
+    }
+
+
+}
