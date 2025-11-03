@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken } from "../../lib/auth"
 
-import React from 'react'
-
+import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation'
+import {Trash} from 'react-feather'
 function TaskList() {
     const [tasks, setTasks] = useState([])
     const user = getUserFromToken()
     const isAdmin = user && (user.role === 'ADMIN' || user.is_superuser)
+    const [taskToDelete, setTaskToDelete] = useState(null)
 
     async function getAllTasks() {
         try {
@@ -24,13 +25,15 @@ function TaskList() {
         getAllTasks()
     }, [])
 
-    async function handleDelete(taskId) {
+    async function handleConfirmDelete() {
+        if (!taskToDelete) return
         try {
             await authRequest({
                 method: 'delete',
-                url: `http://127.0.0.1:8000/api/tasks/${taskId}/`
+                url: `http://127.0.0.1:8000/api/tasks/${taskToDelete.id}/`
             })
             getAllTasks()
+            setTaskToDelete(null)
         } catch (error) {
             console.log('Failed to delete a task', error);
 
@@ -100,8 +103,8 @@ function TaskList() {
                                                     ✏️
                                                 </button>
                                             </Link>
-                                            <button onClick={() => handleDelete(task.id)}>
-                                                delete
+                                            <button onClick={() => setTaskToDelete(task)}>
+                                                <Trash size={16} />
                                             </button>
                                         </>
                                     )}
@@ -120,10 +123,17 @@ function TaskList() {
                         ))}
                     </tbody>
                 </table>
+
+            
             )
             }
 
-
+<DeleteConfirmation
+itemType='task'
+open={taskToDelete != null}
+onClose={() => setTaskToDelete(null)}
+onConfirm={handleConfirmDelete}
+/>
         </div>
     )
 }
