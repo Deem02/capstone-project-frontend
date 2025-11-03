@@ -9,6 +9,7 @@ import EmployeeList from './components/EmployeeList/EmployeeList'
 import EmployeeForm from './components/EmployeeForm/EmployeeForm'
 import TaskList from './components/TaskList/TaskList'
 import TaskForm from './components/TaskForm/TaskForm'
+import TaskDetail from './components/TaskDetail/TaskDetail'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import { getUserFromToken } from './lib/auth'
@@ -67,6 +68,11 @@ function App() {
           <Route path='/tasks/:taskId/edit' element={
             <ProtectedRoute>
               <TaskForm />
+            </ProtectedRoute>
+          } />
+          <Route path='/tasks/:taskId/view' element={
+            <ProtectedRoute>
+              <TaskDetail />
             </ProtectedRoute>
           } />
 
