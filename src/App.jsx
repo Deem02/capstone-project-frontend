@@ -22,6 +22,7 @@ function App() {
     <>
       <Router>
         < NavBar user={user} setUser={setUser} />
+       < main className ='app-container'>
         <Routes>
           <Route path='/login' element={<Login setUser={setUser} />} />
 
@@ -79,6 +80,7 @@ function App() {
 
 
         </Routes>
+        </main>
       </Router>
     </>
   )

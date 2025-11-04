@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from "react-router";
 import { authRequest } from "../../lib/auth"
-import React from 'react'
+import { Save, ArrowLeft } from 'react-feather';
 
 function TaskForm() {
     const navigate = useNavigate()
@@ -92,13 +92,13 @@ function TaskForm() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-          <h1> {taskId ? `Edit Task ` : 'Create New Task'} </h1>
+          <h1 className='form-title' > {taskId ? `Edit Task ` : 'Add New Task'} </h1>
           <div>
                 <label htmlFor="title">Title</label>
                 <input value={formData.title} onChange={handleChange} id='title' name='title' type="text" required />
             </div>
           <div>
-                <label htmlFor="description">description</label>
+                <label htmlFor="description">Description</label>
                 <textarea value={formData.description} onChange={handleChange} id='description' name='description'/>
             </div>
                       <div>
@@ -126,9 +126,14 @@ function TaskForm() {
                 </select> */}
             {/* </div> */}
     
-                        <div>
-                <button type='submit'>Save </button>
-                <button type='button' onClick={() => navigate('/tasks')} >Cancel </button>
+                <div className='form-actions'>
+                <button type='submit' className='btn btn-save' >
+                    <Save size={18} />
+                   Save
+                     </button>
+                <button type='button' className='btn btn-cancel' onClick={() => navigate('/tasks')} >
+                    Cancel 
+                    </button>
             </div>
 </form>
         </div>
