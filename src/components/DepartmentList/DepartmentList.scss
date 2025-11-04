@@ -1,0 +1,69 @@
+.dept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.dept-card{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.329);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.dept-card-header {
+    background-color: #113453;
+    color: white;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.dept-card-body {
+padding: 0.5rem;
+flex-grow: 1;
+
+.dept-description{
+font-size: 0.9rem;
+color: #555;
+white-space: normal;
+overflow-wrap: break-word;
+margin-bottom: 1rem;
+}
+.dept-count{
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.4rem;
+
+    .count{
+     display: flex;
+     align-items:center;
+     gap: 0.35rem;
+    }
+}
+
+}
+
+.dept-card-actions{
+    padding: 0.5rem ;
+    // padding-top: 0;
+    display: flex;
+    justify-content: flex-end;
+   
+}
+
+@media (max-width: 900px) {
+    .dept-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+    
+}
+@media (max-width: 600px) {
+    .dept-grid {
+    grid-template-columns: repeat(1, 1fr);
+}
+    
+}
+

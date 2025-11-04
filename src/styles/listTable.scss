@@ -1,7 +1,8 @@
-h2{
+h2 {
     font-size: 2rem;
 }
-.title-header{
+
+.title-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,65 +14,73 @@ h2{
     width: 100%;
     overflow-x: auto;
 }
+
 .table-data {
     width: 100%;
-  margin-top: 1.5rem;   
-  
-  background-color: #e3e3e3;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+    margin-top: 1.5rem;
+
+    background-color: #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 
 
-thead {
- background-color: #d4d4d4e0 ; 
+    thead {
+        background-color: #d4d4d4e0;
 
-th {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    // font-weight: 600;
-    
-}
-}
-tbody {
-    tr {
-        border-bottom: 1px solid lightgrey;
-    &:last-child {
-        border-bottom: none;
-    } 
-   
-    }
-    td {
-        padding: 0.75rem 1rem;
-         vertical-align: middle;
-    }
-    
-    .btn-icon {
-        padding: 0.4rem;
-        cursor: pointer;
-        border-radius: 6px;
-        transition: all 0.2s ease-in-out;
-    }
+        th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            // font-weight: 600;
 
-    .btn-edit {
-        color: #29508f;
-        &:hover {
-            background-color: #3d5f9698 ;
         }
     }
-    .btn-delete {
-        color: rgba(218, 23, 23, 0.801);
-        &:hover {
-            background-color: rgba(206, 41, 41, 0.61);
+
+    tbody {
+        tr {
+            border-bottom: 1px solid lightgrey;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
         }
-    }
-    .btn-view {
-        color: #3fcf8f;
-        &:hover {
-            background-color: #369c6ee0;
+
+        td {
+            padding: 0.75rem 1rem;
+            vertical-align: middle;
         }
+
     }
-    
 }
 
+.btn-icon {
+    padding: 0.4rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-edit {
+    color: #29508f;
+
+    &:hover {
+        background-color: #3d5f9698;
+    }
+}
+
+.btn-delete {
+    color: rgba(218, 23, 23, 0.801);
+
+    &:hover {
+        background-color: rgba(206, 41, 41, 0.61);
+    }
+}
+
+.btn-view {
+    color: #3fcf8f;
+
+    &:hover {
+        background-color: #369c6ee0;
+    }
 }

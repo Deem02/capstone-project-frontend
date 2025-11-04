@@ -77,8 +77,6 @@ function App() {
             </ProtectedRoute>
           } />
 
-
-
         </Routes>
         </main>
       </Router>

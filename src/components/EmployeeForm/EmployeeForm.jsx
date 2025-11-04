@@ -125,39 +125,39 @@ async function handleSubmit(event) {
 return (
     <div>
         <form onSubmit={handleSubmit}>
-            <h1 className='form-title'> {employeeId ? `Edit Employee ` : 'Create New Employee'} </h1>
+            <h1 className='form-title'> {employeeId ? `Edit Employee ` : 'Add New Employee'} </h1>
             <div>
-                <label htmlFor="first_name">first_name</label>
+                <label htmlFor="first_name">First Name</label>
                 <input value={formData.user.first_name} onChange={handleChange} id='first_name' name='first_name' type="text" required />
             </div>
             <div>
-                <label htmlFor="last_name">last_name</label>
+                <label htmlFor="last_name">Last Name</label>
                 <input value={formData.user.last_name} onChange={handleChange} id='last_name' name='last_name' type="text" required />
             </div>
             <div>
-                <label htmlFor="email">email</label>
+                <label htmlFor="email">Email</label>
                 <input value={formData.user.email} onChange={handleChange} id='email' name='email' type="email" required />
             </div>
             <div>
-                <label htmlFor="username">username</label>
+                <label htmlFor="username">Username</label>
                 <input value={formData.user.username} onChange={handleChange} id='username' name='username' type="text" required />
             </div>
             <div>
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">Password</label>
                 <input value={formData.user.password} onChange={handleChange} id='password' name='password' type="password" required={!employeeId} autoComplete='new-password'/>
             </div>
 
 
             <div>
 
-                      <label htmlFor="role">role </label>
+                      <label htmlFor="role">Role </label>
                 <select value={formData.role} onChange={handleChange} id='role' name='role' required>
                  <option value="USER">User</option>   
                   <option value="ADMIN">Admin</option>
                 </select>
             </div>
             <div>
-              <label htmlFor="department_id">department</label>
+              <label htmlFor="department_id">Department</label>
                 <select value={formData.department_id || ''} onChange={handleChange} id='department_id' name='department_id'>
                     <option value="">No Department</option>
                     {departments.map(department => (

@@ -1,7 +1,8 @@
 // #233142
-$nav-bg: #222a31;
+// $nav-bg: #222a31;
+ $nav-bg: #113453;
 $nav-text: #f7f7f7;
-$nav-hover: #22313f;
+$nav-hover: #0d2c47;
 $nav-brand: #24527a;
 
 .navbar {
@@ -33,7 +34,7 @@ $nav-brand: #24527a;
 
         &:hover {
             background-color: $nav-hover;
-            color: #24527a;
+            // color: #24527a;
         }
     }
 

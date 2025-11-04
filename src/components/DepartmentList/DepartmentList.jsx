@@ -1,15 +1,15 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
-import { useNavigate } from "react-router";
-
-import { authRequest, getUserFromToken, clearTokens } from "../../lib/auth"
+import { authRequest} from "../../lib/auth"
+import { Trash, Edit, User } from 'react-feather'
+import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation'
+import './DepartmentList.scss'
 
 
 function DepartmentList() {
     const [departments, setDepartments] = useState([])
-    const navigate = useNavigate()
-
+    const [deptToDelete, setDeptToDelete] = useState(null)
     async function getAllDepartments() {
         // used authRequest insted of  axios.get
         try {
@@ -26,12 +26,14 @@ function DepartmentList() {
         getAllDepartments()
     }, [])
 
-    async function handleDelete(departmentId){
+    async function handleConfirmDelete(){
         try{
        await authRequest({ 
         method: 'delete',
-         url: `http://127.0.0.1:8000/api/departments/${departmentId}/` })
+         url: `http://127.0.0.1:8000/api/departments/${deptToDelete.id}/` 
+        })
          getAllDepartments()
+         setDeptToDelete(null)
         } catch (error){
         console.log('Failed to delete departments', error);
 
@@ -41,37 +43,59 @@ function DepartmentList() {
 
     return (
         <div>
+            <div className='title-header'> 
             <h2>Departments </h2>
 
-            <Link to='/departments/add'>
-                <button>
+            <Link to='/departments/add'  className='btn-add'>
                     + Add Department
-                </button>
             </Link>
+            </div>
 
-            {departments.length ?
-                departments.map((department) => {
-                    return (
-                        <div key={department.id}>
-                            <p> <strong>{department.name}  </strong> {department.description} </p>
+            {departments.length ? (
+            <div className='dept-grid'> 
+                {departments.map((department) => (
 
+                        <div className='dept-card' key={department.id}>
+                            <div className='dept-card-header'>
+                                   {department.name} 
+                            </div>
+                          <div className='dept-card-body'>
+                            <p className='dept-description' >
+                                    {department.description}  </p>  
+                             <div className='dept-count'>
+                                <span className='count'>
+                                <User size={17} />
+                                {department.employee_count} Employees
+                                </span>
+                                </div>         
+                                                   
+                          </div>
+                          <div className='dept-card-actions'>                   
                             <Link to={`/departments/${department.id}/edit`} >
-                                <button>
-                                    ✏️
+                                <button className='btn-icon btn-edit'>
+                                                    <Edit size={17} />
                                 </button>
                             </Link>
-                            <button onClick={()=> handleDelete(department.id)}>
-                              delete  
+                            <button  className='btn-icon btn-delete'
+                            onClick={()=> setDeptToDelete(department)}>
+                                <Trash size={17} />  
                             </button>
-
+                         </div>
                         </div>
-                    )
-                })
-                :
-                <h2>No Department. Start by creating a new Department.</h2>
-            }
+                                
+                     ))}
+                       </div>  
+               ) : (
+                <h3>No Department. Start by creating a new Department.</h3>
+                )
+         }
 
-
+            <DeleteConfirmation
+                itemType='department'
+                open={deptToDelete != null}
+                onClose={() => setDeptToDelete(null)}
+                onConfirm={handleConfirmDelete}
+            />
         </div>
     )
 }

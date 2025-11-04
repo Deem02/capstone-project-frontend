@@ -1,5 +1,9 @@
 @import "tailwindcss";
-
+.app-container {
+  max-width: 1500px; 
+  margin: 0 auto;
+  padding: 2rem;
+} 
 body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -43,7 +47,7 @@ body {
   border-radius: 8px;
   padding: 0.5em 1em;
   font-weight: 500;
-  background-color: #132743;
+  background-color: #113453;
   color: white;
   cursor: pointer;
   transition: background-color 0.25s, border-color 0.25s; 
@@ -51,9 +55,13 @@ body {
   border-radius: 8px;
   border: 1px solid transparent;
 }
-.btn-add:hover {
+/* 132743
   border-color: #24527a;
   background-color: #113453;
+ */
+.btn-add:hover {
+  border-color: #113453;
+  background-color: #1c4263;
 }
 
 label {
