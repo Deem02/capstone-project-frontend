@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken } from "../../lib/auth"
-
 import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation'
-import {Trash} from 'react-feather'
+import './TaskList.scss'
+import { Trash, Edit, Eye } from 'react-feather'
 function TaskList() {
     const [tasks, setTasks] = useState([])
     const user = getUserFromToken()
@@ -54,19 +54,18 @@ function TaskList() {
     }
     return (
         <div>
-            <div>
+            <div className='title-header'>
                 <h2>{isAdmin ? 'All Tasks' : 'My Tasks'}</h2>
-                {isAdmin && <Link to='/tasks/add'>
-                    <button>
-                        + Add Task
-                    </button>
-                </Link>
-                }
+            {isAdmin && <Link to='/tasks/add' className='btn-add'>
+                + Add Task
+            </Link>
+            }
             </div>
             {tasks.length === 0 ? (
                 <p>No tasks found. </p>
             ) : (
-                <table>
+                <div className='table-container'>
+                <table className='table-data'>
                     <thead>
                         <tr>
                             <th>Title </th>
@@ -84,7 +83,7 @@ function TaskList() {
                                 <td>{task.title}</td>
                                 <td>
                                     {isAdmin ? (
-                                        <span>{task.is_completed ? 'Complete✅' : 'Uncomplete☐'}</span>
+                                        <span>{task.is_completed ? 'Complete✅' : 'Uncomplete'}</span>
                                     ) : (
                                         <button onClick={() => handleChangeStatus(task)}>
                                             {task.is_completed ? 'Complete✅' : 'Uncomplete☐'}
@@ -99,18 +98,19 @@ function TaskList() {
                                     {isAdmin && (
                                         <>
                                             <Link to={`/tasks/${task.id}/edit`} >
-                                                <button>
-                                                    ✏️
+                                                <button className='btn-icon btn-edit'>
+                                                    <Edit size={17} />
                                                 </button>
                                             </Link>
-                                            <button onClick={() => setTaskToDelete(task)}>
-                                                <Trash size={16} />
+                                            <button className='btn-icon btn-delete'
+                                                onClick={() => setTaskToDelete(task)}>
+                                                <Trash size={17} />
                                             </button>
                                         </>
                                     )}
                                     <Link to={`/tasks/${task.id}/view`} >
-                                        <button>
-                                            view
+                                        <button className='btn-icon btn-view'>
+                                            <Eye size={17} />
                                         </button>
                                     </Link>
 
@@ -123,17 +123,17 @@ function TaskList() {
                         ))}
                     </tbody>
                 </table>
+</div>
 
-            
             )
             }
 
-<DeleteConfirmation
-itemType='task'
-open={taskToDelete != null}
-onClose={() => setTaskToDelete(null)}
-onConfirm={handleConfirmDelete}
-/>
+            <DeleteConfirmation
+                itemType='task'
+                open={taskToDelete != null}
+                onClose={() => setTaskToDelete(null)}
+                onConfirm={handleConfirmDelete}
+            />
         </div>
     )
 }
