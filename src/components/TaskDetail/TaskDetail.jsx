@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { authRequest } from "../../lib/auth"
+import './TaskDetail.scss'
+import { ArrowLeft } from 'react-feather'
 
 function TaskDetail() {
     const { taskId } = useParams()
@@ -20,7 +22,7 @@ function TaskDetail() {
             settask(response.data)
         } catch (error) {
             console.log('Failed to fetch a task', error);
-    
+
 
         }
 
@@ -32,22 +34,25 @@ function TaskDetail() {
 
 
     return (
-        <div>
-            <div>
-                <h2>{task.title} </h2>
-                <div>
-                   <strong>Status:</strong> <span>{task.is_completed ? 'Complete✅' : 'Uncomplete☐'}</span>
-                       
+        <div className='task-wrapper'>
+            <div className='task-container'>
+                <h2 className='task-title'>{task.title} </h2>
+                <div className='task-info'>
+                    <p>
+                        <strong>Status:</strong> {task.is_completed ? 'Complete✅' : 'Uncomplete'}
+                    </p>
+
+                    <p> <strong>Description:</strong>  {task.description || 'No Description'}</p>
+                    <p> <strong>Assignee:</strong>   {task.assignee_name} </p>
+                    <p> <strong>Department:</strong>   {task.department_name || 'No Department'} </p>
+                    <p> <strong>Due Date:</strong>   {task.due_date || 'No due date'} </p>
+
+                    <div className='task-actions'>
+                        <button className='btn btn-cancel' onClick={() => navigate('/tasks')}>
+                            <ArrowLeft size={18} />
+                        </button></div>
                 </div>
-            </div>
-            <div> 
-                 <p> <strong>Description:</strong> {task.description || 'No Description'} </p>
-                <p> <strong>Assignee:</strong> {task.assignee_name} </p>
-                <p> <strong>Department:</strong> {task.department_name || 'No Department'}</p>
-                <p> <strong>Due Date:</strong> {task.due_date || 'No due date'} </p>
-            </div>
-            <button onClick={()=> navigate('/tasks')}> Back </button>
-        </div>
+            </div></div>
     )
 }
 

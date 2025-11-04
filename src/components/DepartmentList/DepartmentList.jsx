@@ -44,7 +44,7 @@ function DepartmentList() {
     return (
         <div>
             <div className='title-header'> 
-            <h2>Departments </h2>
+            <h2> All Departments </h2>
 
             <Link to='/departments/add'  className='btn-add'>
                     + Add Department

@@ -1,0 +1,48 @@
+
+.task-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    min-height: 80vh;
+}
+ .task-container{   
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.329);
+    max-width: 1100px; 
+    width: 100%;
+    position: relative;
+  
+
+    .task-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        // color: #24527a;
+    }
+    .task-info {
+        margin-bottom: 1rem;
+        // line-height: 1.6;  
+    }
+    p {
+        font-size: 1rem; 
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    strong {
+        margin-right: 0.4rem;
+        color: rgb(29, 28, 28);
+
+    }
+ .task-actions{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+    }
+}   
+

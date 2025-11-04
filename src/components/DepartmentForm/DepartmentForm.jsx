@@ -68,7 +68,7 @@ function DepartmentForm() {
     return (
         <div>
             < form onSubmit={handleSubmit} >
-                <h1 className='form-title'> {departmentId ? `Edit ${formData.name}` : 'Add New Depatment'} </h1>
+                <h1 className='form-title'> {departmentId ? `Edit Depatment ` : 'Add New Depatment'} </h1>
                 <div>
                     <label htmlFor="name">Name</label>
                     <input value={formData.name} onChange={handleChange} id='name' name='name' type="text" required />
