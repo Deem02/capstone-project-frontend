@@ -12,6 +12,7 @@ import TaskForm from './components/TaskForm/TaskForm'
 import TaskDetail from './components/TaskDetail/TaskDetail'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
+import AdminOnlyRoute from './components/Auth/AdminOnlyRoute'
 import { getUserFromToken } from './lib/auth'
 
 
@@ -22,64 +23,29 @@ function App() {
     <>
       <Router>
         < NavBar user={user} setUser={setUser} />
-       < main className ='app-container'>
-        <Routes>
-          <Route path='/login' element={<Login setUser={setUser} />} />
+        < main className='app-container'>
+          <Routes>
+            <Route path='/login' element={<Login setUser={setUser} />} />
 
-          <Route path='/departments' element=
-            {<ProtectedRoute>
-              <DepartmentList />
-            </ProtectedRoute>
-            } />
-          <Route path='/departments/add' element={
-            <ProtectedRoute>
-              <DepartmentForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/departments/:departmentId/edit' element={
-            <ProtectedRoute>
-              <DepartmentForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/employees' element={
-            <ProtectedRoute>
-              <EmployeeList />
-            </ProtectedRoute>
-          } />
-          <Route path='/employees/:employeeId/edit' element={
-            <ProtectedRoute>
-              <EmployeeForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/employees/add' element={
-            <ProtectedRoute>
-              <EmployeeForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/tasks/' element={
-            <ProtectedRoute>
-              <TaskList />
-            </ProtectedRoute>
-          } />
-          <Route path='/tasks/add' element={
-            <ProtectedRoute>
-              <TaskForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/tasks/:taskId/edit' element={
-            <ProtectedRoute>
-              <TaskForm />
-            </ProtectedRoute>
-          } />
-          <Route path='/tasks/:taskId/view' element={
-            <ProtectedRoute>
-              <TaskDetail />
-            </ProtectedRoute>
-          } />
+            <Route element={<AdminOnlyRoute />}>
+              < Route path='/departments' element={<DepartmentList />} />
+              < Route path='/departments/add' element={<DepartmentForm />} />
+              <Route path='/departments/:departmentId/edit' element={<DepartmentForm />} />
+              <Route path='/employees' element={<EmployeeList />} />
+              <Route path='/employees/:employeeId/edit' element={<EmployeeForm />} />
+              <Route path='/employees/add' element={<EmployeeForm />} />
+              <Route path='/tasks/add' element={<TaskForm />} />
+              <Route path='/tasks/:taskId/edit' element={<TaskForm />} />
 
-        </Routes>
+            </Route>
+            <Route element={<ProtectedRoute />} >
+              <Route path='/tasks/' element={<TaskList />} />
+              <Route path='/tasks/:taskId/view' element={<TaskDetail />} />
+            </Route>
+
+          </Routes>
         </main>
-      </Router>
+      </Router >
     </>
   )
 }
