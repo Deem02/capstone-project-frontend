@@ -10,6 +10,7 @@ import EmployeeForm from './components/EmployeeForm/EmployeeForm'
 import TaskList from './components/TaskList/TaskList'
 import TaskForm from './components/TaskForm/TaskForm'
 import TaskDetail from './components/TaskDetail/TaskDetail'
+import EmployeeProfile from './components/EmployeeProfile/EmployeeProfile'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Auth/ProtectedRoute'
 import AdminOnlyRoute from './components/Auth/AdminOnlyRoute'
@@ -40,7 +41,9 @@ function App() {
             </Route>
             <Route element={<ProtectedRoute />} >
               <Route path='/tasks/' element={<TaskList />} />
+           
               <Route path='/tasks/:taskId/view' element={<TaskDetail />} />
+                 <Route path='/profile' element={<EmployeeProfile />} />
             </Route>
 
           </Routes>
