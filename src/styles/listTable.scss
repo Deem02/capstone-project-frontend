@@ -6,8 +6,7 @@ h2{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    width: 80%;
-
+    width: 100%;
 }
 
 .table-container {
@@ -15,7 +14,7 @@ h2{
     overflow-x: auto;
 }
 .table-data {
-    width: 80%;
+    width: 100%;
   margin-top: 1.5rem;   
   
   background-color: #e3e3e3;
@@ -67,9 +66,9 @@ tbody {
         }
     }
     .btn-view {
-        color: rgb(250, 189, 35);
+        color: #3fcf8f;
         &:hover {
-            background-color: rgba(255, 200, 60, 0.788);
+            background-color: #369c6ee0;
         }
     }
     

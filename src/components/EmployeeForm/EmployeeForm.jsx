@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from "react-router";
 import { authRequest } from "../../lib/auth"
-
+import { Save, ArrowLeft } from 'react-feather';
 
 function EmployeeForm() {
     const navigate = useNavigate()
@@ -125,7 +125,7 @@ async function handleSubmit(event) {
 return (
     <div>
         <form onSubmit={handleSubmit}>
-            <h1> {employeeId ? `Edit Employee ` : 'Create New Employee'} </h1>
+            <h1 className='form-title'> {employeeId ? `Edit Employee ` : 'Create New Employee'} </h1>
             <div>
                 <label htmlFor="first_name">first_name</label>
                 <input value={formData.user.first_name} onChange={handleChange} id='first_name' name='first_name' type="text" required />
@@ -170,9 +170,15 @@ return (
                 </select>
             </div>
 
-            <div>
-                <button type='submit'>Save </button>
-                <button type='button' onClick={() => navigate('/employees')} >Cancel </button>
+            <div className='form-actions'>
+                <button type='submit'className='btn btn-save' >
+                    <Save size={18} />
+                   Save
+                     </button>
+                <button type='button' className='btn btn-cancel' onClick={() => navigate('/employees')}>
+                    <ArrowLeft size={18} />
+                    Cancel 
+                    </button>
             </div>
 
         </form>

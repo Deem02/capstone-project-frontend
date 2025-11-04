@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken } from "../../lib/auth"
 import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation'
-import './TaskList.scss'
+import '../../styles/listTable.scss'
 import { Trash, Edit, Eye } from 'react-feather'
 function TaskList() {
     const [tasks, setTasks] = useState([])
@@ -93,7 +93,7 @@ function TaskList() {
 
                                 <td>{task.assignee_name}</td>
                                 <td>{task.department_name || 'No Department'}</td>
-                                <td>{task.due_date || '---'}</td>
+                                <td>{task.due_date || '----'}</td>
                                 <td>
                                     {isAdmin && (
                                         <>

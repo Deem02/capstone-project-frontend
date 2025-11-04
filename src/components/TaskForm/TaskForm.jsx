@@ -132,6 +132,7 @@ function TaskForm() {
                    Save
                      </button>
                 <button type='button' className='btn btn-cancel' onClick={() => navigate('/tasks')} >
+                    <ArrowLeft size={18} />
                     Cancel 
                     </button>
             </div>
