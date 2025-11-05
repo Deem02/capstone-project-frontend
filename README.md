@@ -1,16 +1,67 @@
-# React + Vite
+# 🧭 Employee Management System — Frontend
+This repository contains the React-based frontend for the Employee Management System, a full-stack web application designed to manage departments, employees, and tasks within an organization.
+The system provides a secure, role-based experience with separate views for Admins and Employees.
+Admins have full CRUD (Create, Read, Update, Delete) privileges over departments, employees, and tasks, while employees can view and manage only their assigned tasks and profile
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Backend Repository Link: [https://github.com/Deem02/capstone-project-backend]
 
-Currently, two official plugins are available:
+## 🛠Tech stack
+| Category                | Technology                               |
+| ----------------------- | ---------------------------------------- |
+| **Framework / Library** | React                                    |
+| **Build Tool**          | Vite                                     |
+| **Routing**             | React Router                             |
+| **API Client**          | Axios                                    |
+| **Styling**             | SCSS (Sass), TailwindCSS, and Global CSS |
+| **Authentication**      | JWT (JSON Web Tokens) with `jwt-decode`  |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
+To set up the project locally, follow these steps:
+### 1. Clone the repositires:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+ git clone https://github.com/Deem02/capstone-project-frontend.git
+  ```
+### 2. Install backend dependencies:
+
+```bash
+cd capstone-project-backend
+pipenv install
+```
+
+### 3. Start the react development server:
+
+```bash
+cd  capstone-project-frontend/
+npm install
+npm run dev
+```
+The frontend will run on: http://localhost:5173/
+
+
+
+## ✨Features
+- **Role-Based Access Control (RBAC):**
+  - **Admin:** Admins can create, edit, and delete departments, employees, and tasks.
+  - **Employee:** View and complete assigned tasks, and view their profile.
+
+- **Authentication:** Secure login/logout using JWT with automatic token refresh.
+- **Department Management (Admin):** Full CRUD operations.
+- **Employee Management (Admin):** Full CRUD for employees, including creating their user accounts and assigning roles/departments.
+- **Task Management:** 
+  - **Admin:** Full CRUD. 
+  - **Employee:** View assigned tasks, view task details, and mark tasks as complete.
+- **Reusable UI Components:** Modals, tables, and shared styles.
+
+
+
+
+## Future Goals
+- **Admin Analytics Dashboard:**
+View company-wide statistics (e.g., total employees, completed tasks, etc.)
+- **Task Filtering & Sorting:**
+ Filter the task list by status, due date, or assignee.
+
