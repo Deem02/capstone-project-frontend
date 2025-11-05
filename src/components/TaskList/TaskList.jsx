@@ -7,6 +7,8 @@ import { Trash, Edit, Eye } from 'react-feather'
 function TaskList() {
     const [tasks, setTasks] = useState([])
     const user = getUserFromToken()
+    console.log(user);
+    
     const isAdmin = user && (user.role === 'ADMIN' || user.is_superuser)
     const [taskToDelete, setTaskToDelete] = useState(null)
 
@@ -82,12 +84,13 @@ function TaskList() {
                             <tr key={task.id}>
                                 <td>{task.title}</td>
                                 <td>
-                                    {isAdmin ? (
-                                        <span>{task.is_completed ? 'Complete✅' : 'Uncomplete'}</span>
-                                    ) : (
-                                        <button onClick={() => handleChangeStatus(task)}>
+                                    {(!isAdmin || task.assignee == user.user_id) ? (
+                                          <button onClick={() => handleChangeStatus(task)}>
                                             {task.is_completed ? 'Complete✅' : 'Uncomplete☐'}
-                                        </button>
+                                        </button> 
+                                    ) : (
+                <span>{task.is_completed ? 'Complete✅' : 'Uncomplete'}</span>
+
                                     )}
                                 </td>
 

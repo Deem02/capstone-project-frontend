@@ -22,7 +22,7 @@ function NavBar({ user, setUser }) {
                 </>
               )
             ) : (
-              <span className='navbar-brand'>Management System</span>
+              <span className='navbar-brand'>Employee Management System</span>
             )}
         </div>
         <div className='navbar-auth'>
