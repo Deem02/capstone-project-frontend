@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { saveTokens, getUserFromToken } from "../../lib/auth"
 import { useNavigate } from "react-router"
+import '../../styles/login.scss'
 export default function Login({ setUser }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -28,11 +29,13 @@ export default function Login({ setUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="login-wrapper" > 
+    <form onSubmit={handleSubmit} className="login-form">
       <h2>Login</h2>
-      <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+      <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required/>
+      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required/>
       <button type="submit">Login</button>
     </form>
+    </div>
   )
 }

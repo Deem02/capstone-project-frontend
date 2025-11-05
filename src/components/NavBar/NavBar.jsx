@@ -31,7 +31,8 @@ function NavBar({ user, setUser }) {
               <LogOutButton setUser={setUser} />
             </>
           ) : (
-            < Link to={'/login'}>Log In</Link>
+            <p></p>
+            // < Link to={'/login'}>Log In</Link>
           )}
         </div>
       </div>
