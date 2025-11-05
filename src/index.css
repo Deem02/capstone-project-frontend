@@ -39,6 +39,15 @@ body {
     background-color: #2a353a;
   }
 
+  .btn-danger{
+    background-color: #e60d23e7;
+    color: white;
+  }
+  .btn-danger:hover{
+    background-color: #a1111f ;
+  }
+
+
 
 .btn-add {
   display: inline-block;
